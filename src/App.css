@@ -1,42 +1,124 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0; /* 薄いグレーの背景 */
+}
+
+.quiz-app-container {
+  max-width: 500px;
+  width: 90%;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: bold;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Question Componentのスタイル */
+.question-container {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.question-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* ボタン間のスペース */
 }
 
-.card {
-  padding: 2em;
+.choice-button {
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color 0.2s;
 }
 
-.read-the-docs {
-  color: #888;
+.choice-button:hover:not(:disabled) {
+  background-color: #e6e6e6;
+}
+
+/* 回答後の状態 */
+.choice-button.selected {
+  background-color: #cceeff; /* 選択中の色 */
+  border-color: #007bff;
+}
+
+.choice-button.correct {
+  background-color: #d4edda; /* 正解の色 */
+  font-weight: bold;
+  border-color: #28a745;
+}
+
+.choice-button.incorrect {
+  background-color: #f8d7da; /* 不正解の色 */
+  border-color: #dc3545;
+}
+
+/* 解説ボックス */
+.explanation-box {
+  margin-top: 15px;
+  padding: 10px;
+  border-left: 5px solid #007bff;
+  background-color: #f9f9f9;
+}
+
+.explanation-title {
+  font-weight: bold;
+}
+
+/* ナビゲーションと結果 */
+.navigation-area {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.next-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.result-container {
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  background-color: #fff3cd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.restart-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
 }
