@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { quizQuestions } from '../data/questions';
 import { Question } from './Question';
 import { Result } from './Result';
+import { Button } from './Button';
 
 type Answer = {
   questionId: number;
@@ -85,12 +86,11 @@ export const Quiz: React.FC = () => {
 
       <div className="navigation-area">
         {showExplanation && (
-          <button
+          <Button
             onClick={handleNext}
-            className="next-button"
           >
             {currentQuestionIndex === quizQuestions.length - 1 ? '結果を見る' : '次の問題へ'}
-          </button>
+          </Button>
         )}
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from './Button';
 
 interface ResultProps {
   score: number;
@@ -13,12 +14,11 @@ export const Result: React.FC<ResultProps> = ({ score, totalQuestions, onRestart
       <p className="result-score">
         あなたのスコアは **{totalQuestions}問中 {score}問正解** でした。
       </p>
-      <button
+      <Button
         onClick={onRestart}
-        className="restart-button"
       >
         もう一度挑戦する
-      </button>
+      </Button>
     </div>
   );
 };

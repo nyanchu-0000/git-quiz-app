@@ -1,5 +1,6 @@
 import React from 'react';
 import type { QuestionType, Choice } from '../types/quiz'; 
+import { Button } from './Button';
 
 interface QuestionProps {
     question: QuestionType;
@@ -39,14 +40,14 @@ interface QuestionProps {
       </h3>
       <div className="choices-list">
         {question.choices.map((choice) => (
-          <button
+          <Button
             key={choice.id}
             onClick={() => onAnswer(choice.id)}
             disabled={showResult}
             className={getButtonClass(choice)}
           >
             {choice.text}
-          </button>
+          </Button>
         ))}
       </div>
       
