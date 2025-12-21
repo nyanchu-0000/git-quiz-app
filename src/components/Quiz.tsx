@@ -74,24 +74,34 @@ export const Quiz: React.FC = () => {
   }
 
   return (
-    <div className="quiz-app-container">
-      <h1 className="main-title">Git コマンド クイズ</h1>
-      
-      <Question
-        question={currentQuestion}
-        onAnswer={handleAnswer}
-        userAnswerId={currentAnswer?.selectedChoiceId ?? null}
-        showResult={showExplanation}
-      />
+    // 外側の背景（元 .app-root 相当）
+    <div className="min-h-screen flex items-center justify-center bg-[#f0f0f0]">
+      {/* メインコンテナ（元 .quiz-app-container） */}
+      <div>
+        
+        {/* タイトル（元 .main-title） */}
+        <h1 className="text-2xl font-bold text-center mb-5">
+          Git コマンド クイズ
+        </h1>
+        
+        <Question
+          question={currentQuestion}
+          onAnswer={handleAnswer}
+          userAnswerId={currentAnswer?.selectedChoiceId ?? null}
+          showResult={showExplanation}
+        />
 
-      <div className="navigation-area">
-        {showExplanation && (
-          <Button
-            onClick={handleNext}
-          >
-            {currentQuestionIndex === quizQuestions.length - 1 ? '結果を見る' : '次の問題へ'}
-          </Button>
-        )}
+        {/* ナビゲーション（元 .navigation-area） */}
+        <div className="flex justify-end">
+          {showExplanation && (
+            <Button
+              onClick={handleNext}
+              className="px-5 py-[10px] bg-[#28a745] text-white font-bold rounded hover:opacity-90 transition-opacity"
+            >
+              {currentQuestionIndex === quizQuestions.length - 1 ? '結果を見る' : '次の問題へ'}
+            </Button>
+          )}
+        </div>
       </div>
     </div>
   );

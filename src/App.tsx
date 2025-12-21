@@ -1,13 +1,14 @@
-import React from 'react';
-import { Quiz } from './components/Quiz';
-// import './index.css'; // この行もCSSフレームワークのインポートなので、削除または別途用意したCSSのパスに変更します
+import React from "react";
+import { Quiz } from "./components/Quiz";
 
 const App: React.FC = () => {
-  return (
-    <div className="app-root">
-      <Quiz />
-    </div>
-  );
+    return (
+        <div className="min-h-screen flex items-center justify-center">
+            <div>
+                <Quiz />
+            </div>
+        </div>
+    );
 };
 
 export default App;

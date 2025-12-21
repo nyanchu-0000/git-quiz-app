@@ -7,38 +7,41 @@ interface QuestionProps {
     onAnswer: (choiceId: number) => void;
     userAnswerId: number | null;
     showResult: boolean;
-  }
-  
-  export const Question: React.FC<QuestionProps> = ({
+}
+
+export const Question: React.FC<QuestionProps> = ({
   question, 
   onAnswer, 
   userAnswerId, 
   showResult 
 }) => {
   const getButtonClass = (choice: Choice) => {
+    // 共通のベーススタイル
+    const baseClass = "w-full p-3 text-left border rounded transition-colors duration-200";
+
     if (!showResult) {
       // 結果表示前
       if (choice.id === userAnswerId) {
-          return 'choice-button selected'; // 選択中のボタン
+          return `${baseClass} bg-[#cceeff] border-[#007bff]`; // 選択中
       }
-      return 'choice-button'; // 通常のボタン
+      return `${baseClass} bg-white border-[#aaa] hover:bg-[#e6e6e6]`; // 通常
     }
 
     // 結果表示後
     if (choice.id === question.correctChoiceId) {
-      return 'choice-button correct'; // 正解
+      return `${baseClass} bg-[#d4edda] border-[#28a745] font-bold`; // 正解
     } else if (choice.id === userAnswerId) {
-      return 'choice-button incorrect'; // 不正解 (ユーザーが選んだもの)
+      return `${baseClass} bg-[#f8d7da] border-[#dc3545]`; // 不正解 (ユーザーが選んだもの)
     }
-    return 'choice-button answered'; // その他の選択肢
+    return `${baseClass} bg-white border-[#aaa] opacity-60 cursor-not-allowed`; // その他の選択肢
   };
 
   return (
-    <div className="question-container">
-      <h3 className="question-title">
+    <div className="p-[15px] border border-[#ddd] rounded mb-[15px]">
+      <h3 className="text-[18px] font-semibold mb-[15px]">
         Q{question.id}. {question.question}
       </h3>
-      <div className="choices-list">
+      <div className="flex flex-col gap-[10px]">
         {question.choices.map((choice) => (
           <Button
             key={choice.id}
@@ -52,8 +55,8 @@ interface QuestionProps {
       </div>
       
       {showResult && (
-        <div className="explanation-box">
-          <p className="explanation-title">解説:</p>
+        <div className="mt-[15px] p-[10px] border-l-[5px] border-[#007bff] bg-[#f9f9f9]">
+          <p className="font-bold">解説:</p>
           <p>{question.explanation}</p>
         </div>
       )}
