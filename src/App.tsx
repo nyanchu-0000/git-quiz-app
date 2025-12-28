@@ -1,13 +1,12 @@
 import React from "react";
 import { Quiz } from "./components/Quiz";
+import { BackgroundWrapper } from "./components/BackgroundWrapper";
 
 const App: React.FC = () => {
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div>
-                <Quiz />
-            </div>
-        </div>
+        <BackgroundWrapper>
+            <Quiz />
+        </BackgroundWrapper>
     );
 };
 

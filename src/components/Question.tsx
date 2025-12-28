@@ -37,7 +37,7 @@ export const Question: React.FC<QuestionProps> = ({
   };
 
   return (
-    <div className="p-[15px] border border-[#ddd] rounded mb-[15px]">
+    <div className="p-[15px] border border-[#ddd] rounded mb-[15px] w-[800px]">
       <h3 className="text-[18px] font-semibold mb-[15px]">
         Q{question.id}. {question.question}
       </h3>
